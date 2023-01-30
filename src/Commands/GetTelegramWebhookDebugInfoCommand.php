@@ -21,7 +21,7 @@ class GetTelegramWebhookDebugInfoCommand extends Command
         $botModel = config('telegraph.models.bot');
 
         /** @var TelegraphBot|null $bot */
-        $bot = rescue(fn () => $botModel::fromId($bot_id), report: false);
+        $bot = rescue(fn() => $botModel::fromId($bot_id), report: false);
 
         if (empty($bot)) {
             $this->error(__('telegraph::errors.missing_bot_id'));
@@ -46,7 +46,11 @@ class GetTelegramWebhookDebugInfoCommand extends Command
                 $value = $value ? __('telegraph::misc.yes') : __('telegraph::misc.no');
             }
 
-            /** @phpstan-ignore-next-line  */
+            if (is_array($value)) {
+                $value = implode(', ', $value);
+            }
+
+            /** @phpstan-ignore-next-line */
             $this->line("$key: $value");
         }
 

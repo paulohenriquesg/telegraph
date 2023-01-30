@@ -38,6 +38,12 @@ trait InteractsWithWebhooks
             'url' => $this->getWebhookUrl(),
         ];
 
+        $allowedUpdates = config('telegraph.allowed_updates');
+
+        if ($allowedUpdates) {
+            $telegraph->data['allowed_updates'] = $allowedUpdates;
+        }
+
         return $telegraph;
     }
 

@@ -16,6 +16,19 @@ return [
     'default_parse_mode' => Telegraph::PARSE_HTML,
 
     /*
+     * Sets Telegram webhook allowed updates
+     *
+     * For reference, see https://core.telegram.org/bots/api#update
+     */
+    'allowed_updates' => [
+        'message',
+        'callback_query',
+        'my_chat_member',
+        'chat_member',
+        'chat_join_request',
+    ],
+
+    /*
      * Sets the handler to be used when Telegraph
      * receives a new webhook call.
      *
