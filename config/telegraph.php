@@ -29,6 +29,12 @@ return [
     ],
 
     /*
+     * Sets the controller to be used when Telegraph
+     * receives a new webhook call.
+     */
+    'route_controller' => App\Http\Controllers\WebhookController::class,
+
+    /*
      * Sets the handler to be used when Telegraph
      * receives a new webhook call.
      *
