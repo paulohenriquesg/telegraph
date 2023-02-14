@@ -114,6 +114,13 @@ class TelegraphFake extends Telegraph
         ], $exact);
     }
 
+    public function assertInviteSent(): void
+    {
+        $this->assertSentData(Telegraph::ENDPOINT_CREATE_CHAT_INVITE_LINK, [
+            'name' => 'Invite',
+        ], true);
+    }
+
     public function assertNothingSent(): void
     {
         Assert::assertEmpty(self::$sentMessages, sprintf("Failed to assert that no request were sent (sent %d requests so far)", count(self::$sentMessages)));
