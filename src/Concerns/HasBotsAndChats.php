@@ -108,10 +108,6 @@ trait HasBotsAndChats
             $telegraph->chat = $chat;
         }
 
-        if (config('telegraph.models.chat', null) === null) {
-            $telegraph->chat = null;
-        }
-
         return $telegraph->chat;
     }
 
