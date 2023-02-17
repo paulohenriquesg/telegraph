@@ -153,7 +153,7 @@ trait FakesRequests
             Telegraph::ENDPOINT_GET_BOT_INFO => [
                 'ok' => true,
                 'result' => [
-                    'id' => 42,
+                    'id' => rand(1, 99999),
                     'is_bot' => true,
                     'first_name' => 'telegraph-test',
                     'username' => 'test_bot',
@@ -165,7 +165,7 @@ trait FakesRequests
             Telegraph::ENDPOINT_GET_CHAT_INFO => [
                 'ok' => true,
                 'result' => [
-                    'id' => 42,
+                    'id' => rand(1, 99999),
                     'type' => 'group',
                     'title' => 'foo',
                     'description' => 'bar',

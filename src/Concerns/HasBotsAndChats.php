@@ -101,11 +101,15 @@ trait HasBotsAndChats
             }
         }
 
-        if (empty($telegraph->chat)) {
+        if (empty($telegraph->chat) && config('telegraph.models.chat', null)) {
             /** @var TelegraphChat $chat */
             $chat = rescue(fn () => TelegraphChat::query()->sole(), null, false);
 
             $telegraph->chat = $chat;
+        }
+
+        if (config('telegraph.models.chat', null) === null) {
+            $telegraph->chat = null;
         }
 
         return $telegraph->chat;
